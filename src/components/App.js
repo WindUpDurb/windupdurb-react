@@ -12,7 +12,7 @@ class App extends React.Component {
     render() {
         let loadingSpinner;
         if (this.props.loading) {
-            loadingSpinner = <div className="loader"></div>;
+            loadingSpinner = <div className="loader"/>;
         }
         return (
             <div>
