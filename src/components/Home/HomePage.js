@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as ArticleActions from "../../actions/ArticleActions";
 import {ParallaxHeader} from "../common/ParallaxHeader";
+import {ArticleCard} from "../common/ArticleCard";
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -17,9 +18,14 @@ class HomePage extends React.Component {
 
 
     render() {
+        let articleCards;
+        if (this.props.articles) articleCards = this.props.articles.map((article, index) => <ArticleCard key={index} article={article} index={index} />);
         return (
             <div>
                 <ParallaxHeader home backgroundUrl="/images/thumbUpCompressed.jpg"/>
+                <div className="container">
+                    {articleCards}
+                </div>
             </div>
         );
     }
@@ -32,7 +38,7 @@ HomePage.propTypes = {
 
 function mapStateToProps (state, ownProps) {
     let articles;
-    if (state.initialState.articles) articles = state.initialState.articles;
+    if (state.initialState && state.initialState.articles) articles = state.initialState.articles;
     return {
         articles
     };
