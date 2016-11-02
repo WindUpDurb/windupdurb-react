@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/statics"));
 
 
 

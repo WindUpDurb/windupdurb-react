@@ -1,0 +1,309 @@
+.writingblock {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.githubMark {
+    position: relative;
+
+}
+
+.footerDivider {
+    height: 1px;
+    background-color: #333333;
+
+}
+
+.blockDivider {
+    height: 1px;
+    background-color: #333333;
+
+}
+.writingblockinnercontainer {
+//border-top: 1px solid rgba(0, 0, 0, .57);
+}
+
+.winduphomeheader {
+    margin-top: 72px;
+}
+
+.homeheader {
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.homemeditationsheading {
+    margin-bottom: 98px;
+    color: rgba(51, 51, 51, .77);
+    font-weight: 400;
+}
+
+.footerinnercontainer {
+//border-top: 1px solid #000;
+}
+
+.footercontainer {
+    margin-top: 11px;
+}.winduphomeheader {
+     margin-top: 72px;
+ }
+
+.homeheader {
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+.homemeditationsheading {
+    margin-bottom: 98px;
+    color: rgba(51, 51, 51, .77);
+    font-weight: 400;
+}
+
+.footerinnercontainer {
+//border-top: 1px solid #000;
+}
+
+.footercontainer {
+    margin-top: 11px;
+}
+
+.greyText {
+    color: rgba(51, 51, 51, .77);
+}
+
+//////////////Webflow above
+
+              .thumbnailImage {
+                  width: 32px;
+                  height: 32px;
+              }
+
+body {
+//padding-top: 275px;
+    background-color: white;
+    padding-bottom: 70px;
+    font-family: "Fjalla One", sans-serif;
+}
+
+#parallaxContainer {
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbarInnerContainer {
+    font-size: 1.45em;
+}
+
+.navbarMine {
+    height: 5%;
+}
+
+.firstPageImage {
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.firstPageContainer {
+    padding-top: 5%;
+}
+
+.firstPageDetailDiv {
+    padding-top: 3%;
+}
+
+.firstPageTitle {
+    font-size: 1.95em;
+}
+
+.firstPageDate {
+    font-size: 1.25em;
+}
+
+.firstPageIntro {
+    font-size: 1.5em;
+}
+
+.PageTitle {
+    font-size: 1.65em;
+}
+
+.PageDate {
+    font-size: 1.05em;
+}
+
+.PageIntro {
+    font-size: 1.25em;
+}
+
+.cardEffect {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.cardEffect:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.paddingImage {
+    padding: 2%;
+}
+
+.rowDivSM {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.essayText {
+    font-size: 1.35em;
+}
+
+.cardNameDiv {
+    padding-top: 15px;
+}
+
+.universalFont {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+#homeCard {
+    padding-top: 14%;
+}
+
+#myImage {
+    max-height: 175px;
+    max-width: 175px;
+}
+
+.cardMainTextDiv {
+    padding-top: 10px;
+}
+
+.cardtextMain {
+    font-size: 1.25em;
+    line-height: 1.5;
+
+}
+
+#aboutHeart {
+    display: inline;
+}
+
+.heartCharacters {
+    font-family: sans-serif;
+}
+
+.essayImages {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    max-width: 60%;
+}
+
+
+#parallaxHomeXS {
+    /*background-image: url("/images/thumbUpXS.jpg");*/
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallaxHome {
+    background-image: url("/images/thumbUpCompressed.jpg");
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallaxAbout {
+    background-image: url("/images/onWhyIWrite.jpg");
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallaxAboutXS {
+    background-image: url("/images/onWhyIWriteXS.jpg");
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sectionHeaderDiv {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.sectionHeader {
+    font-size: 2.32em;
+}
+
+.essayLink {
+    color: #FF5722;
+}
+
+#essayTitle {
+    margin-bottom: 50px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #FF5722;
+}
+
+a:focus {
+    color: #FF5722;
+}
+
+.highlight {
+    color: #FF5722;
+}
+
+#typedAnimation {
+    display: inline-block;
+    color: black;
+    text-align: left;
+}
+
+.whiteText {
+    color: #EEEEEE;
+}
+
+.firstPageImageXS {
+    max-width: 300px;
+    max-height: 650px;
+}
+
+#directoryContainer {
+    background-color: #EEEEEE;
+    margin-top: 10px;
+}
+
+#windUpDurb {
+    color: black;
+}
+
+#directory {
+    margin-top: 20px;
+}
+
+p {
+    font-family: 'Playfair Display', serif;
+    text-indent: 50px;
+    text-align: left;
+    line-height: 1.5;
+}
+

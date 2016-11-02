@@ -3,6 +3,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import {ParallaxHeader} from "../common/ParallaxHeader";
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class HomePage extends React.Component {
     render() {
         return (
             <div>
-                Home
+                <ParallaxHeader home backgroundUrl="/images/thumbUpCompressed.jpg"/>
             </div>
         );
     }
