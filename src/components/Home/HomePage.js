@@ -3,6 +3,7 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import * as ArticleActions from "../../actions/ArticleActions";
 import {ParallaxHeader} from "../common/ParallaxHeader";
 
 class HomePage extends React.Component {
@@ -10,6 +11,9 @@ class HomePage extends React.Component {
         super(props);
     }
 
+    componentWillMount() {
+        this.props.ArticleActions.retrieveArticles();
+    }
 
 
     render() {
@@ -22,13 +26,22 @@ class HomePage extends React.Component {
 }
 
 HomePage.propTypes = {
-
+    ArticleActions: PropTypes.object,
+    articles: PropTypes.array
 };
 
 function mapStateToProps (state, ownProps) {
+    let articles;
+    if (state.initialState.articles) articles = state.initialState.articles;
     return {
-
+        articles
     };
 }
 
-export default connect(mapStateToProps)(HomePage);
+function mapDispatchToProps(dispatch) {
+    return {
+        ArticleActions: bindActionCreators(ArticleActions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
