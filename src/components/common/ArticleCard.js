@@ -2,14 +2,16 @@
 
 import React, {PropTypes} from "react";
 
-export const ArticleCard = ({index, article}) => {
+export const ArticleCard = ({index, article, goToArticle}) => {
+    let toArticle = () => goToArticle(article);
+
     if (index === 0) {
         return (
-            <div className="row cardEffect">
+            <div onClick={toArticle} style={{cursor: "pointer"}} className="row cardEffect">
                 <div className="text-center paddingImage col-sm-6 col-lg-4">
                     <img className="img-responsive firstPageImage" src={article.photoHeader}/>
                 </div>
-                <div className="hidden-xs col-sm-6 col-lg-8 firstPageDetailDiv">
+                <div className="col-sm-6 col-lg-8 firstPageDetailDiv">
                     <span className="firstPageTitle"><a>{article.title}</a></span>
                     <br/><span className="firstPageIntro">{article.introduction}</span>
                     <br/><br/><br/>
@@ -19,7 +21,7 @@ export const ArticleCard = ({index, article}) => {
         );
     } else {
         return (
-            <div className="cardEffect smallArticleCard col-sm-6 col-lg-4">
+            <div onClick={toArticle} style={{cursor: "pointer"}} className="cardEffect smallArticleCard col-sm-6 col-lg-4">
                 <div className="paddingImage">
                     <img className="img-responsive" src={article.photoHeader}/>
                 </div>
@@ -34,5 +36,6 @@ export const ArticleCard = ({index, article}) => {
 
 ArticleCard.propTypes = {
     article: PropTypes.object,
-    index: PropTypes.number
+    index: PropTypes.number,
+    goToArticle: PropTypes.func
 };
