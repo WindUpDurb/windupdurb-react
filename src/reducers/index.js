@@ -1,11 +1,11 @@
 "use strict";
 
 import { combineReducers } from "redux";
-import initialStateReducer from "./initialStateReducer";
+import articlesReducer from "./articlesReducer";
 import requestStatusReducer from "./requestsInProgress";
 
 const rootReducer = combineReducers({
-    initialState: initialStateReducer,
+    articles: articlesReducer,
     requestsInProgress: requestStatusReducer
 });
 

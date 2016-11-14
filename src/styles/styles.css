@@ -71,7 +71,7 @@
     color: rgba(51, 51, 51, .77);
 }
 
-//////////////Webflow above
+/*//////////////Webflow above*/
 
               .thumbnailImage {
                   width: 32px;
@@ -229,8 +229,8 @@ body {
 }
 
 #parallaxHome {
-    background-image: url("/images/thumbUpCompressed.jpg");
-    height: 700px;
+    /*background-image: url("/images/thumbUpCompressed.jpg");*/
+    height: 650px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

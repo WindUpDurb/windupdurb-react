@@ -1,5 +1,5 @@
 "use strict";
 
-export const articles = null;
+export const articles = {};
 
 export const requestsInProgress = 0;

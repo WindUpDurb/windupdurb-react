@@ -13,7 +13,7 @@ router.get("/", function (request, response) {
 });
 
 router.put("/getSingleEssay", function (request, response) {
-    Essay.find(request.body, function (error, essay) {
+    Essay.findOne({url: request.body.join("-")}, function (error, essay) {
         if (error) response.status(400).send(error);
         response.send(essay);
     });

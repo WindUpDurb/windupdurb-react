@@ -4,6 +4,7 @@ import React from "react";
 import { Route, IndexRedirect } from "react-router";
 import App from "./components/App";
 import HomePage from "./components/Home/HomePage";
+import ArticleComponent from "./components/Article/ArticleComponent";
 
 
 
@@ -14,7 +15,7 @@ export const generateRoutes = (store) => {
         <Route path="/" component={App}>
             <IndexRedirect to="/home"/>
             <Route path="/home" component={HomePage} />
-            <Route path="/writing/:articleTitle" component={HomePage} />
+            <Route path="/writing/:articleTitle" component={ArticleComponent} />
         </Route>
     );
 

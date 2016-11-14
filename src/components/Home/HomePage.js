@@ -21,7 +21,6 @@ class HomePage extends React.Component {
 
     goToArticle(article) {
         browserHistory.push(`/writing/${article.url}`);
-
     }
 
 
@@ -46,7 +45,7 @@ HomePage.propTypes = {
 
 function mapStateToProps (state, ownProps) {
     let articles;
-    if (state.initialState && state.initialState.articles) articles = state.initialState.articles;
+    if (state.articles && state.articles.articles) articles = state.articles.articles;
     return {
         articles
     };
