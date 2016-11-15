@@ -18,7 +18,7 @@ class ArticleComponent extends React.Component {
 
     render() {
         let backgroundUrl, textBody;
-        console.log("Check: ", this.props.currentArticle)
+        console.log("Check: ", this.props.currentArticle);
         if (this.props.currentArticle && this.props.currentArticle.textBody) textBody = this.props.currentArticle.textBody;
         if (this.props.currentArticle && this.props.currentArticle.photoHeader) backgroundUrl = this.props.currentArticle.photoHeader;
         return (
