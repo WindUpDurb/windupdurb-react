@@ -23,6 +23,7 @@ export function retrieveArticles() {
                 return response.json();
             })
             .then(parsedResponse => {
+                console.log("Parsed Rsponse: ", parsedResponse)
                 dispatch(dispatchArticleRetrievalSuccess(parsedResponse));
             })
             .catch(error => {
@@ -42,6 +43,7 @@ export function retrieveSingleEssay(url) {
         };
         fetch("/api/essays/getSingleEssay", options)
             .then(response => {
+                console.log("Response: ", response)
                 return response.json();
             })
             .then(parsedResponse => {

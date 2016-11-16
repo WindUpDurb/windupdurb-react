@@ -171,7 +171,16 @@ let secondEssay = {
         },
         {
             contentType: "Text",
-            content: `But a foreword first. This tutorial assumes that you have already created an account with Amazon Web Services, have created an IAM user for EC2 in which we will work from, and have created an EC2 key pair that will be used to log in to the EC2 instance via SSH. If you have not, <b> <a class='essayLink' href='http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair' target="_blank"> here </a> </b> is a link to get you up to speed because it is healthy, you know, to get some exposure to the official documentation.`
+            content: "But a foreword first. This tutorial assumes that you have already created an account with Amazon Web Services, have created an IAM user for EC2 in which we will work from, and have created an EC2 key pair that will be used to log in to the EC2 instance via SSH. If you have not,"
+        },
+        {
+            contentType: "Link",
+            content: " here ",
+            link: "http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair"
+        },
+        {
+            contentType: "TextAfterLink",
+            content: "is a link to get you up to speed because it is healthy, you know, to get some exposure to the official documentation."
         },
         {
             contentType: "Text",
@@ -202,8 +211,13 @@ let secondEssay = {
         },
         {
             contentType: "Text",
-            content: `This tutorial will be using the MEAN stack image powered by Bitnami. There are a plethora of other images on the AWS marketplace, so you can explore it and choose one that is more to your liking. But this tutorial will be using the Bitnami MEAN stack image, and it can be found <b> <a class='essayLink' href='http://aws.amazon.com/marketplace/pp/B00GXYE87S/ref=srh_res_product_title?ie=UTF8&sr=0-3&qid=1435737629090' target="_blank"> here </a> </b>.`
+            content: "This tutorial will be using the MEAN stack image powered by Bitnami. There are a plethora of other images on the AWS marketplace, so you can explore it and choose one that is more to your liking. But this tutorial will be using the Bitnami MEAN stack image, and it can be found "
 
+        },
+        {
+            contentType: "Link",
+            content: "here",
+            link: "http://aws.amazon.com/marketplace/pp/B00GXYE87S/ref=srh_res_product_title?ie=UTF8&sr=0-3&qid=1435737629090"
         },
         {
             contentType: "Text",
@@ -507,11 +521,20 @@ let secondEssay = {
         },
         {
             contentType: "Text",
-            content: `Before leaving the SSH shell, though, you might want to re-direct port 80, which is running the Bitnami MEAN Stack welcome screen,  to port 3000 where the web application is running. The purpose of this is so that you do not have to append port 3000 to the end of the URL. I spent a considerable amount of time searching how I could achieve this before I stumbled across <b> <a class='essayLink' href='http://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode' target="_blank"> this </a> </b> Stack Overflow post.`
+            content: "Before leaving the SSH shell, though, you might want to re-direct port 80, which is running the Bitnami MEAN Stack welcome screen,  to port 3000 where the web application is running. The purpose of this is so that you do not have to append port 3000 to the end of the URL. I spent a considerable amount of time searching how I could achieve this before I stumbled across "
 
         },
         {
+            contentType: "Link",
+            link: "http://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode",
+            content: "this "
+        },
+        {
             contentType: "Text",
+            content: "Stack Overflow post."
+        },
+        {
+            contentType: "TextAfterLink",
             content: `So I  suggest reading through it. But the gist of the solution is to enter the following command in the SSH terminal session:`
 
         },
@@ -1055,11 +1078,29 @@ let sixthEssay = {
         },
         {
             contentType: "Text",
-            content:`My research led me to discover that the Model-View-Controller pattern originated outside of web application development in desktop graphical user interfaces, and I've traced an early discussion on the pattern to a late 1970's text written by Trygve Reenskaug, which can be found <b> <a class='essayLink' href='http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html' target="_blank"> here </a> </b>. In it Reenskaug writes that the “essential purpose of MVC is to bridge the gap between the human user's mental model and the digital model that exists in the computer.” What can be gleaned from this quote is that the purpose behind the MVC pattern is to facilitate ease of interaction with software. The “human user's mental model” refers to the internalized assumptions that a user has before engaging with software. It is the model he or she forms and that will lead his interaction with the software, and it could prove to be accurate or entirely inaccurate from the actual conceptual model of the software. What should be aimed for, from what I've read, is to design software that best reflects the user's mental model; that'll ultimately create the best user experience.`
+            content:"My research led me to discover that the Model-View-Controller pattern originated outside of web application development in desktop graphical user interfaces, and I've traced an early discussion on the pattern to a late 1970's text written by Trygve Reenskaug, which can be found "
+        },
+        {
+            contentType: "Link",
+            link: "http://heim.ifi.uio.no/~trygver/themes/mvc/mvc-index.html",
+            content: " here."
+        },
+        {
+            contentType: "TextAfterLink",
+            content: "In it Reenskaug writes that the “essential purpose of MVC is to bridge the gap between the human user's mental model and the digital model that exists in the computer.” What can be gleaned from this quote is that the purpose behind the MVC pattern is to facilitate ease of interaction with software. The “human user's mental model” refers to the internalized assumptions that a user has before engaging with software. It is the model he or she forms and that will lead his interaction with the software, and it could prove to be accurate or entirely inaccurate from the actual conceptual model of the software. What should be aimed for, from what I've read, is to design software that best reflects the user's mental model; that'll ultimately create the best user experience."
         },
         {
             contentType: "Text",
-            content:`The MVC pattern can also be interpreted as a solution to a software design concern of how best to facilitate the intended information acquisition or manipulation of a more or less intangible source: the digital material that is data. Which can be interpreted from the following question, which is posed by Reenskaug <b> <a class='essayLink' href='http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf' target="_blank">here</a></b>: “How can we design a system so that the user sees a reflection of his mental model in the system without any of the details that happen to be of no interest to him.” My interpretation of the quote requires us to consider something. While the user's mental model refers to the assumed steps he will take to interact with the software, I find it important to understand why a user, in the case of web applications, will often interact with software in the first place. It is my belief, and I mention this without any superlatives, that a user interacts with software to interact with data, or information; and it is software, as well as hardware, that facilitates that interaction. So really, the MVC pattern aims to “bridge the gap” between how a user assumes he will interact with data through a user interface, which can be software and hardware, and how that actual interaction is facilitated by the software and hardware. And that best can be achieved, according to my interpretation of the MVC pattern, through a separation of concerns: the controller component accepts as input the user's intended interactions with the data; the model component manages the data in the software and receives commands or directions from the controller on how update or manipulate the data; and the view component receives the outputted data from the model to render and re-render to reflect the user's intended interactions. What stands out to me is that user intended interactions are crucial to understanding and implementing an MVC pattern implementation; the pattern implementation should not only accurately responds to user intentions, but provide an environment that facilitates accepting user-intended interactions. `
+            content: "The MVC pattern can also be interpreted as a solution to a software design concern of how best to facilitate the intended information acquisition or manipulation of a more or less intangible source: the digital material that is data. Which can be interpreted from the following question, which is posed by Reenskaug"
+        },
+        {
+            contentType: "Link",
+            content: "here",
+            link: "http://heim.ifi.uio.no/~trygver/2003/javazone-jaoo/MVC_pattern.pdf"
+        },
+        {
+            contentType: "TextAfterLink",
+            content: `: “How can we design a system so that the user sees a reflection of his mental model in the system without any of the details that happen to be of no interest to him.” My interpretation of the quote requires us to consider something. While the user's mental model refers to the assumed steps he will take to interact with the software, I find it important to understand why a user, in the case of web applications, will often interact with software in the first place. It is my belief, and I mention this without any superlatives, that a user interacts with software to interact with data, or information; and it is software, as well as hardware, that facilitates that interaction. So really, the MVC pattern aims to “bridge the gap” between how a user assumes he will interact with data through a user interface, which can be software and hardware, and how that actual interaction is facilitated by the software and hardware. And that best can be achieved, according to my interpretation of the MVC pattern, through a separation of concerns: the controller component accepts as input the user's intended interactions with the data; the model component manages the data in the software and receives commands or directions from the controller on how update or manipulate the data; and the view component receives the outputted data from the model to render and re-render to reflect the user's intended interactions. What stands out to me is that user intended interactions are crucial to understanding and implementing an MVC pattern implementation; the pattern implementation should not only accurately responds to user intentions, but provide an environment that facilitates accepting user-intended interactions.`
         },
         {
             contentType: "Image",
@@ -1165,11 +1206,11 @@ let seventhEssay = {
         },
         {
             contentType: "Text",
-            content:`I understand abstraction in computer science as taking complexity and generalizing it, which thereby simplifies it. Abstraction outside of computer science is knowing what beer is without having to know what beer <i> really </i> is: which is a beverage brewed from malted barley, some hops, and some yeast, among other ingredients for individuality and character. Beer serves as an abstraction for this beverage, so we can better interact with and understand beer without having to really interact with and understand all the complexity that makes beer. `
+            content:`I understand abstraction in computer science as taking complexity and generalizing it, which thereby simplifies it. Abstraction outside of computer science is knowing what beer is without having to know what beer really is: which is a beverage brewed from malted barley, some hops, and some yeast, among other ingredients for individuality and character. Beer serves as an abstraction for this beverage, so we can better interact with and understand beer without having to really interact with and understand all the complexity that makes beer. `
         },
         {
             contentType: "Text",
-            content:`It is through combining abstractions that we can understand composition. Abstractions can be composed into further abstractions, so that we can understand what a six pack is without also having to concentrate on what a six pack <i> really </i> is: six glass bottles that each hold 12 ounces of a beverage brewed from malted barley, hops, yeast, and other ingredients, which are held in the six pockets of a cardboard holder. And this is a pretty shallow analysis of the abstraction levels of a six pack. It can be taken deeper into the cardboard holder, the glass bottles, and etcetera. But what I’d like to reiterate is that composition is combining abstractions and layering them to create further abstractions, which make life, and coding, more manageable. `
+            content:`It is through combining abstractions that we can understand composition. Abstractions can be composed into further abstractions, so that we can understand what a six pack is without also having to concentrate on what a six pack really is: six glass bottles that each hold 12 ounces of a beverage brewed from malted barley, hops, yeast, and other ingredients, which are held in the six pockets of a cardboard holder. And this is a pretty shallow analysis of the abstraction levels of a six pack. It can be taken deeper into the cardboard holder, the glass bottles, and etcetera. But what I’d like to reiterate is that composition is combining abstractions and layering them to create further abstractions, which make life, and coding, more manageable. `
         },
         {
             contentType: "Text",
