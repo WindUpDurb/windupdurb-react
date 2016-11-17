@@ -12,7 +12,7 @@ export const ArticleCard = ({index, article, goToArticle}) => {
                     <img className="img-responsive firstPageImage" src={article.photoHeader}/>
                 </div>
                 <div className="col-sm-6 col-lg-8 firstPageDetailDiv">
-                    <span className="firstPageTitle"><a>{article.title}</a></span>
+                    <span className="firstPageTitle">{article.title}</span>
                     <br/><span className="firstPageIntro">{article.introduction}</span>
                     <br/><br/><br/>
                     <span className="firstPageDate">{article.datePosted}</span>

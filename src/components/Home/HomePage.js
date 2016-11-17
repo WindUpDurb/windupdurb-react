@@ -45,7 +45,7 @@ HomePage.propTypes = {
 
 function mapStateToProps (state, ownProps) {
     let articles;
-    if (state.articles && state.articles.articles) articles = state.articles.articles;
+    if (state.articles && state.articles.articles) articles = state.articles.articles.reverse();
     return {
         articles
     };

@@ -2,6 +2,7 @@
 import React, { PropTypes } from "react";
 import ScrollToTop from "react-scroll-up";
 import {connect} from "react-redux";
+import {Footer} from "./common/Footer";
 
 class App extends React.Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class App extends React.Component {
                 </ScrollToTop>
                 {loadingSpinner}
                 {this.props.children}
+                <Footer/>
             </div>
         );
     }

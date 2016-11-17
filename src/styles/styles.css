@@ -204,6 +204,24 @@ body {
 
 }
 
+.dividerStyle {
+    border-bottom: 1px solid black;
+    width: 30%;
+}
+
+.gearDiv {
+
+}
+
+.footerLinks {
+    cursor: pointer;
+}
+
+.footerLinks:hover {
+    text-decoration: underline;
+    color: #009688;
+}
+
 #aboutHeart {
     display: inline;
 }
@@ -245,6 +263,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 
 #parallaxAboutXS {
     background-image: url("/images/onWhyIWriteXS.jpg");
