@@ -17,6 +17,20 @@ const compiler = webpack(config);
 /* eslint-disable no-console */
 
 
+const lex = require('letsencrypt-express').create({
+    // set to https://acme-v01.api.letsencrypt.org/directory in production
+    server: 'staging',
+    challenges: { 'http-01': require('le-challenge-fs').create({ webrootPath: '/tmp/acme-challenges' }) },
+    store: require('le-store-certbot').create({ webrootPath: '/tmp/acme-challenges' }),
+    approveDomains: ["windupdurb.com", "www.windupdurb.com"]
+});
+
+// handles acme-challenge and redirects to https
+require('http').createServer(lex.middleware(require('redirect-https')())).listen(80, function () {
+    console.log("Listening for ACME http-01 challenges on", this.address());
+});
+
+
 mongoose.connect(MONGOURL, function (error) {
     console.log(error || `Connected to MongoDB at ${MONGOURL}`);
 });
@@ -45,6 +59,8 @@ app.use("/api", require("./routes/api"));
 app.use("*", require("./routes/index"));
 
 
-app.listen(PORT, function(err) {
-    console.log(err || `Listening on port ${PORT}`);
+
+// handles your app
+require('https').createServer(lex.httpsOptions, lex.middleware(app)).listen(443, function () {
+    console.log("Listening for ACME tls-sni-01 challenges and serve app on", this.address());
 });
