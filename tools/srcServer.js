@@ -1,5 +1,7 @@
 "use strict";
 
+require("dotenv").load();
+
 import express from 'express';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
@@ -11,7 +13,7 @@ import path from "path";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const MONGOURL = process.env.MONGODB_AWS || "mongodb://windupdurb-admin-remote:So-we-beat-on@ec2-52-8-177-223.us-west-1.compute.amazonaws.com:27017/essays";
+const MONGOURL = process.env.MONGODB_AWS || "mongodb://localhost/windupdurbWebsite";
 const compiler = webpack(config);
 // const pathToStatic = path.join(__dirname);
 /* eslint-disable no-console */

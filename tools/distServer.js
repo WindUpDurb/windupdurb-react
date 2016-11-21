@@ -1,5 +1,7 @@
 "use strict";
 
+require("dotenv").load();
+
 import express from 'express';
 import path from 'path';
 import compression from "compression";
@@ -12,7 +14,7 @@ import mongoose from "mongoose";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const MONGOURL = process.env.MONGODB_URI || "mongodb://localhost/example";
+const MONGOURL = process.env.MONGODB_AWS || "mongodb://localhost/windupdurbWebsite";
 
 mongoose.connect(MONGOURL, function (error) {
     console.log(error || `Connected to MongoDB at ${MONGOURL}`);

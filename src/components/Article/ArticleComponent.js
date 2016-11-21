@@ -6,7 +6,7 @@ import {bindActionCreators} from "redux";
 import * as ArticleActions from "../../actions/ArticleActions";
 import {ParallaxHeader} from "../common/ParallaxHeader";
 import {ArticleBody} from "./ArticleBody";
-// import {Disqus} from "./Disqus";
+import {Disqus} from "./Disqus";
 
 class ArticleComponent extends React.Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class ArticleComponent extends React.Component {
             <div>
                 <ParallaxHeader backgroundUrl={backgroundUrl}/>
                 <ArticleBody title={title} datePosted={datePosted} body={textBody}/>
-                {/*<Disqus url={url}/>*/}
+                <Disqus url={url}/>
             </div>
         );
     }

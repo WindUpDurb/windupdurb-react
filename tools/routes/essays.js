@@ -15,7 +15,6 @@ router.get("/", function (request, response) {
 router.put("/getSingleEssay", function (request, response) {
     Essay.findOne({url: request.body.join("-")}, function (error, essay) {
         if (error) response.status(400).send(error);
-        console.log("Essay: ", essay);
         response.send(essay);
     });
 });
