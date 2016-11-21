@@ -11,24 +11,10 @@ import path from "path";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const MONGOURL = process.env.MONGODB_AWS || "mongodb://localhost/windupdurbWebsite";
+const MONGOURL = process.env.MONGODB_AWS || "mongodb://windupdurb-admin-remote:So-we-beat-on@ec2-52-8-177-223.us-west-1.compute.amazonaws.com:27017/essays";
 const compiler = webpack(config);
 // const pathToStatic = path.join(__dirname);
 /* eslint-disable no-console */
-
-
-const lex = require('letsencrypt-express').create({
-    // set to https://acme-v01.api.letsencrypt.org/directory in production
-    server: 'staging',
-    challenges: { 'http-01': require('le-challenge-fs').create({ webrootPath: '/tmp/acme-challenges' }) },
-    store: require('le-store-certbot').create({ webrootPath: '/tmp/acme-challenges' }),
-    approveDomains: ["windupdurb.com", "www.windupdurb.com"]
-});
-
-// handles acme-challenge and redirects to https
-require('http').createServer(lex.middleware(require('redirect-https')())).listen(80, function () {
-    console.log("Listening for ACME http-01 challenges on", this.address());
-});
 
 
 mongoose.connect(MONGOURL, function (error) {
@@ -45,7 +31,6 @@ app.use(morgan("dev"));
 app.use(express.static(__dirname + "/statics"));
 
 
-
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     //pass public path defined in public.config
@@ -58,9 +43,6 @@ app.use("/api", require("./routes/api"));
 
 app.use("*", require("./routes/index"));
 
-
-
-// handles your app
-require('https').createServer(lex.httpsOptions, lex.middleware(app)).listen(443, function () {
-    console.log("Listening for ACME tls-sni-01 challenges and serve app on", this.address());
+app.listen(PORT, function(err) {
+    console.log(err || `Listening on port ${PORT}`);
 });
