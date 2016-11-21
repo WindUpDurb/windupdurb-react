@@ -3,6 +3,8 @@
 import React, {PropTypes} from "react";
 
 export const MyCard = () => {
+    let openTwitter = () => window.open("https://twitter.com/WindUpDurb", "_blank");
+    let openGithub = () => window.open("https://github.com/windupdurb", "_blank");
     return (
         <div>
             <div id="homeCard" className="container text-center">
@@ -19,8 +21,10 @@ export const MyCard = () => {
                                     <span className="cardtextMain">-David</span>
                                 </div>
                                 <div className="row cardMainTextDiv">
-                                        <img src="/images/twitter.png"/>
-                                        <img src="/images/github-logo.png"/>
+                                        <img style={{cursor: "pointer"}} onClick={openTwitter} src="/images/twitter.png"/>
+                                    <div style={{display: "inline-block", paddingLeft: "10px"}}>
+                                        <img style={{cursor: "pointer"}} onClick={openGithub} src="/images/github-logo.png"/>
+                                    </div>
                                 </div>
                     </div>
                 </div>
