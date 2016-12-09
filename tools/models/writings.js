@@ -24,12 +24,12 @@ let Essay = mongoose.model("Essay", essaySchema);
 // console.log("Essays: ", EssayCollection);
 
 
-EssayCollection.forEach(function (essay) {
-    Essay.create(essay, function (error, savedDocument) {
-    if (error) return console.log(error);
-    console.log("saved doc: ", savedDocument);
-    });
-});
+// EssayCollection.forEach(function (essay) {
+//     Essay.create(essay, function (error, savedDocument) {
+//     if (error) return console.log(error);
+//     console.log("saved doc: ", savedDocument);
+//     });
+// });
 
 
 
