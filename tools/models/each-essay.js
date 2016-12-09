@@ -1419,4 +1419,256 @@ let seventhEssay = {
     photoHeader: "/images/dandelionCompressed.jpg"
 };
 
-module.exports = [firstEssay, secondEssay, thirdEssay, fourthEssay, fifthEssay, sixthEssay, seventhEssay];
+
+////////////////////////////////End of Seventh
+
+let eighthEssay = {
+    essayNumber: "08",
+    title: "Where's my Beers?: An Introduction to Event Sourcing Using Javascript",
+    introduction:  "Event Sourcing is a design approach where changes to state are stored as a series of events. Sounds familiar?",
+    datePosted: "December 9, 2016",
+    textBody: [
+
+        {
+            contentType: "Text",
+            content:`Event Sourcing can be simplified and understood as a design approach where changes to state are stored as a series of events. This is in contrast to how state is more commonly stored: as a representation of the current value.`
+        },
+        {
+            contentType: "Text",
+            content:`For example, I could have this variable  representing the state of my fridge, which will possess an integer for the number of beers I currently have:`
+        },
+        {
+            contentType: "Image",
+            content: `07-00-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`I buy a six pack and the state gets updated:`
+        },
+        {
+            contentType: "Image",
+            content: `07-01-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`I drink a beer, and the state reflects that accurately.`
+        },
+        {
+            contentType: "Image",
+            content: `07-02-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`I drink another, and again, the state accurately reflects the number of beers that are in my fridge. There’s no issues so far.`
+        },
+        {
+            contentType: "Text",
+            content:`But what happens when I go sometime later to get a beer and notice that I now have zero beers:`
+        },
+        {
+            contentType: "Image",
+            content: `07-03-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`Say what? What happened to them. I see the empty bottles in the fridge: there are six. So, the current state of beersInFridge, which is equal to 0, is completely accurate. But hey, I don’t remember drinking all six beers. `
+        },
+
+        {
+            contentType: "Text",
+            content:`“Who drank my beers?” I yell. `
+        },
+        {
+            contentType: "Text",
+            content:`Not even a stir in the house.`
+        },
+        {
+            contentType: "Text",
+            content:`I slug my body to the couch, and plop down. Damn. Who drank my beers?`
+        },
+        {
+            contentType: "Text",
+            content:`This is a drawback of storing the current value of state. There is no log of actions leading up to the current state. It’s simply a current value representation, which is accurate, of course, but there are limitations on the types of analyses that we can perform on it. `
+        },
+        {
+            contentType: "Text",
+            content:`For example, what if I wanted to analyze how the state in my program got to to this given point? I’m not refuting that the state of 0 beers is inaccurate because I know there are six empty beer bottles, but I would like to determine how I reached 0 beers in the case that, for example, some beer-burglar sneaked a beer from me. There really is no way to do so with my current system of storing state.`
+        },
+        {
+            contentType: "Text",
+            content:`But thankfully I anticipated this scenario and implemented an Event Sourcing system.`
+        },
+        {
+            contentType: "Text",
+            content:`Let’s roll it in.`
+        },
+        {
+            contentType: "Text",
+            content:`With Event Sourcing, state is saved as and built from a stream of events. `
+        },
+
+        {
+            contentType: "Text",
+            content:`An event in Event Sourcing can be understood as anything that has happened, and the event name should be built with a past-tense verb. “PURCHASED_SIX_PACK” is a perfect event name. There’s a past-tense verb and a noun; it’s descriptive, and more specifically, it’s descriptive of an action that has already happened. So, to reiterate, an event is something that has happened in the past, and its name/type should reflect that.`
+        },
+        {
+            contentType: "Text",
+            content:`But how do we implement such an abstraction of a real-life event in code?`
+        },
+        {
+            contentType: "Text",
+            content:`Well, an event is a data-holding structure. In Javascript, an object definitely meets that qualification. `
+        },
+        {
+            contentType: "Text",
+            content:`Below you’ll find my code for an Event class, which I modeled after a node.`
+        },
+        {
+            contentType: "Image",
+            content: `07-04-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`Each event contains a type property for the type of event, a change property containing the integer value for the event, a details property for any string of complementary details, a time property for the time that the event was created, and two pointers to point to the previous and next event in the event stream.`
+        },
+        {
+            contentType: "Text",
+            content:`The event stream, here, refers to the series of stored events, that in totality build the current state (of an application, of an object).`
+        },
+        {
+            contentType: "Text",
+            content:`Here is the constructor for my MakeshiftEventStream class:`
+        },
+        {
+            contentType: "Image",
+            content: `07-05-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`I modeled my makeshift event stream after a linked list. I used a linked list because I felt this type of structure, for the purpose of introducing the concepts of Event Sourcing, replicated the behavior that I wanted to demonstrate. For example, the event stream can be play chronologically or in reverse chronological order. And to find a specific event, you’d have to either start at the beginning of the event stream time-line, or go back in time to find it.`
+        },
+        {
+            contentType: "Text",
+            content:`I am also treating this makeshift event stream as a queue—for the purpose of adding events only. Here I should be clear: the event stream has to be an append-only structure, with no functionality for deleting events. This is important because the event stream, in essence, has to replicate the real-world, in the sense that once as a real-world event has happened, it is impossible to go back in time and delete the event as if it has never happened. Rather, to address any errors or mistakes in the event stream, a new event is added that cancels out the  targeted event, so that the current state, when rebuilt, will be as if the erroneous event had never been added. This is through a process called Reversal Transaction. So to reiterate: there is no deletion of events from the event stream, which is why you won’t find a delete method in my event stream class, and adding an event has to be appended to the event stream.`
+        },
+        {
+            contentType: "Image",
+            content: `07-06-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`So how can we rebuild the current state?`
+        },
+        {
+            contentType: "Text",
+            content:`This is where I also felt a linked list was a good structure for demonstrating this concept. Current state is built from the beginning of the event stream time-line, as it is the value derived from the entire sequence of the events. So to get the current state, you replay from the beginning and rebuild as you move forward in time.`
+        },
+        {
+            contentType: "Image",
+            content: `07-07-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`But what if there are hundreds, thousands, maybe a bazillion events in the event stream? For example, what if I had an event stream that chronicled all of the beers that I’ve consumed in my life, which began when I had my first forty of King Cobra years ago. `
+        },
+        {
+            contentType: "Text",
+            content:`Yes, that would be quite a bit of data to process. Probably a bazillion events to process. So how does Event Sourcing address this? Because it definitely would be a significant hindrance to have to rebuild the entire stream of events whenever we wanted to build the current state.`
+        },
+        {
+            contentType: "Text",
+            content:`In Event Sourcing, a snapshot can be created, which captures the state at a given point of time.`
+        },
+        {
+            contentType: "Image",
+            content: `07-08-images.png`
+        },
+        {
+            contentType: "Image",
+            content: `07-09-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`This is incredibly useful because you can just rebuild the state from a snapshot instead of having to rebuild it from the beginning of the event stream time-line. For example, to get the current state, I can instead start from the end of the event stream, and go backwards, adding each event into a stack until I reach a snapshot, after which I can start rebuilding the state from the stack.`
+        },
+        {
+            contentType: "Image",
+            content: `07-10-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`A huge benefit for having an event stream designed into your system for managing state is the ability to have a log of actions. Current state is built from all of the events in totality, but you can also go to a specific event in the event stream, and rebuild up to it—which will give you the state at that particular moment in time.`
+        },
+        {
+            contentType: "Text",
+            content:`Woah. Does that sound like time-travel? `
+        },
+        {
+            contentType: "Text",
+            content:`With event sourcing, you’re able to go to any points in you event stream time-line to know the state at that given moment, and because there is an inherent log of actions, you’re also able to figure out how the state reached that particular point and through which culmination of exact actions. `
+        },
+
+        {
+            contentType: "Text",
+            content:`Woah. This opens up a huge range of analyses that I can perform on my data. Which means, I that I can take advantage of this behavior of event sourcing to figure out who sneaked a beer from me! `
+        },
+        {
+            contentType: "Text",
+            content:`So, I print out all of the events from the event stream for my fridge.`
+        },
+        {
+            contentType: "Text",
+            content:`And I chuckle at what’s printed out:`
+        },
+        {
+            contentType: "Image",
+            content: `07-11-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`Oh, yeah. I drank all of the beers. No wonder I’m a little buzzed.`
+        },
+        {
+            contentType: "Image",
+            content: `07-12-images.png`
+        },
+        {
+            contentType: "Text",
+            content:`But mystery solved—thanks to Event Sourcing.`
+        },
+        {
+            contentType: "Text",
+            content:`The idea of Event Sourcing isn’t new, by the way. And it actually might seem familiar to you all. Flux and Redux, maybe? `
+        },
+        {
+            contentType: "Text",
+            content:`For more information on Event Sourcing`
+        },
+        {
+            contentType: "Link",
+            content: ", check out this video, ",
+            link: "https://www.youtube.com/watch?v=kZL41SMXWdM&t"
+        },
+        {
+            contentType: "TextAfterLink",
+            content: "and the other videos from Greg Young. "
+        },
+        {
+            contentType: "Text",
+            content:`Lastly, you can find all of my code for my Event, Snapshot, and MakeshiftEventStream classes `
+        },
+        {
+            contentType: "Link",
+            content: " here on my Github.",
+            link: "https://github.com/WindUpDurb/MakeshiftEventSourcingWithJavascript"
+        },
+        {
+            contentType: "Text",
+            content:`Thank you for reading.`
+        },
+    ],
+    url: "my-beer-event-sourcing-and-javascript",
+    photoHeader: "/images/eventSourcingHeader.jpg"
+};
+
+module.exports = [firstEssay, secondEssay, thirdEssay, fourthEssay, fifthEssay, sixthEssay, seventhEssay, eighthEssay];
